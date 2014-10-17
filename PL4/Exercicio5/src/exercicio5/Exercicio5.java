@@ -23,7 +23,7 @@ public class Exercicio5
         int numero,d,aux=1,res=0;
         String sNum;
         
-        sNum=JOptionPane.showInputDialog("Numero:");
+        sNum=JOptionPane.showInputDialog("Numero: ");
         numero=Integer.parseInt(sNum);
         
         while(numero != 0)
@@ -38,7 +38,7 @@ public class Exercicio5
             
             numero /= 10;
         }
-        JOptionPane.showMessageDialog(null,"O resultado é:" + res);
+        JOptionPane.showMessageDialog(null,"O resultado é: " + res);
     }
     
 }

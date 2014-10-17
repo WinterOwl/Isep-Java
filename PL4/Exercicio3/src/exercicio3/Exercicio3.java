@@ -27,12 +27,14 @@ public class Exercicio3
         nome = JOptionPane.showInputDialog("Insira o nome: ");
         
             
-        while(nome.contentEquals("zzz") == false)
+        while(nome.equals("zzz") == false)
         {
             do
             {
-            sIdade = JOptionPane.showInputDialog("Insira a idade: ");
-            idade = Integer.parseInt(sIdade);    
+                
+                sIdade = JOptionPane.showInputDialog("Insira a idade: ");
+                idade = Integer.parseInt(sIdade);   
+                
             } while(idade <= 0 || idade > 150);
                     
             contador++;
@@ -47,7 +49,7 @@ public class Exercicio3
         
         if(contador > 0)
         {
-            percentagem = (int)(((float)soma/(float)contador) * (float)100);
+            percentagem = (int)(((float)soma/(float)contador) * (int)100);
             JOptionPane.showMessageDialog(null, percentagem + "%");
         }
         else
