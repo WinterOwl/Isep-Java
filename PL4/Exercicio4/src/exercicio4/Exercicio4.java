@@ -20,23 +20,25 @@ public class Exercicio4
     public static void main(String[] args)
     {
         // TODO code application logic here
-    int max, soma, contadorPerf=0;
+    int max, soma, contadorPerf=0, contador=0;
         Scanner scn = new Scanner(System.in);
         System.out.print("Insira o limite superior do intervalo: ");
         max = scn.nextInt();
         
-        for(int i = 1; i <= max; i++)
+        while(contadorPerf < max)
         {
+            contador++;
+        
             soma = 0;
-            for(int j = 1; j < i; j++)
+            for(int j = 1; j < contador; j++)
             {
-                if((i % j) == 0)
+                if((contador % j) == 0)
                     soma += j;
             }
-            if(soma == i)
+            if(soma == contador)
             {
                 contadorPerf++;
-                System.out.println(i);
+                System.out.println(contador);
             }
         }
         if(contadorPerf==0)
