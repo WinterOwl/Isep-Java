@@ -22,7 +22,7 @@ public class Exercicio4
         // TODO code application logic here
     int max, soma, contadorPerf=0, contador=0;
         Scanner scn = new Scanner(System.in);
-        System.out.print("Insira o limite superior do intervalo: ");
+        System.out.print("Insira a quantidade de numeros perfeitos: ");
         max = scn.nextInt();
         
         while(contadorPerf < max)

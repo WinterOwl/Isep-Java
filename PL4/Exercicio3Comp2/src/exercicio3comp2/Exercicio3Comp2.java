@@ -24,6 +24,7 @@ public class Exercicio3Comp2
         int contador1, numero, enc = 0, resto, contador2 = 0, verifica = 0, auxiliar = 0;
         
         Scanner scn = new Scanner(System.in);
+        System.out.print("Insira o numero: ");
         numero = scn.nextInt();
         
         while (contador2 <= MAX && verifica == 0)
@@ -41,7 +42,10 @@ public class Exercicio3Comp2
                     contador2 += 1;
             }
             if (contador1 != contador2)
+            {
+                System.out.print("Insira o proximo numero: ");
                 numero = scn.nextInt();
+            }
             else 
             {
                 verifica = 1;
