@@ -20,7 +20,7 @@ public class Exercicio4
     public static void main(String[] args)
     {
         // TODO code application logic here
-    int max, soma, contadorPerf=0, contador=0;
+        double max, soma, contadorPerf=0, contador=0;
         Scanner scn = new Scanner(System.in);
         System.out.print("Insira a quantidade de numeros perfeitos: ");
         max = scn.nextInt();
@@ -30,7 +30,7 @@ public class Exercicio4
             contador++;
         
             soma = 0;
-            for(int j = 1; j < contador; j++)
+            for(double j = 1; j <= contador/2; j++)
             {
                 if((contador % j) == 0)
                     soma += j;
