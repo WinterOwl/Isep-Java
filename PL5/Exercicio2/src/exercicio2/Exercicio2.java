@@ -23,6 +23,7 @@ public class Exercicio2
         
         for(int i = 1; i <= maxDisc; i++)
         {
+            negativas=0; positivas=0;
             System.out.print("Disciplina: ");
             disciplina = input.next();
             
@@ -41,7 +42,11 @@ public class Exercicio2
             }
             
             
-            System.out.print("- Positivas: ");
+            if(positivas == 0)
+                System.out.println("- Positivas: ");
+            else
+                System.out.print("- Positivas: ");
+            
             for(int n = 1; n <= positivas; n++)
             {
                 if(n != positivas)
@@ -58,6 +63,7 @@ public class Exercicio2
                 else
                     System.out.println("*");
             }
+            
         }
     }
     
