@@ -48,10 +48,11 @@ public class ExercicioC4
         int N=1, num;
         boolean ganhou = false;
         
-        System.out.print("Insira o numero de algarismos a serem gerados: ");
+        System.out.print("\nInsira o numero de algarismos a serem gerados: ");
         N = input.nextInt();
         
         int[] vNumRand = new int[N];
+        int[] cpVNumRand = new int[N];
         int[] vNum = new int[N];
         
         for(int i = 0 ; i < N; i++)
@@ -65,22 +66,28 @@ public class ExercicioC4
         {
             do
             {
+            copiarVector(vNumRand, cpVNumRand, N);//cpVNumRand = vNumRand;
             System.out.print("Insira um numero: ");
             num = input.nextInt();
             } while(numAlgarismos(num) != N);
 
             passarParaArray(vNum, N, num);
 
-            if(certos(vNumRand, vNum, N) == N)
+            if(certos(cpVNumRand, vNum, N) == N)
                 ganhou = true;
             else
             {
-                System.out.println("Certos="+certos(vNumRand, vNum, N));
-                System.out.println("Deslocados="+deslocados(vNumRand, vNum, N));
+                System.out.println("Certos="+certos(cpVNumRand, vNum, N));
+                System.out.println("Deslocados="+deslocados(cpVNumRand, vNum, N));
             }
-            mostrarListagem(vNumRand, N);
         } while(!ganhou);
         System.out.println("Parabéns Ganhou!");
+    }
+    
+    public static void copiarVector(int[] original, int[] copia, int N)
+    {
+        for(int i = 0; i < N; i++)
+            copia[i] = original[i];
     }
     
     public static int deslocados(int[] v1, int[] v2, int N)
@@ -90,7 +97,7 @@ public class ExercicioC4
         {
             for(int j = 0; j < N; j++)
             {
-                if(v1[i] == v2[j] && i != j)
+                if(v1[i] == v2[j] && i != j && v1[j] != -1 && v2[j] != -1)
                     contador++;
             }
         }
@@ -103,7 +110,11 @@ public class ExercicioC4
         for(int i = 0; i < N; i++)
         {
             if(v1[i] == v2[i])
-                contador++;
+            {
+                v1[i] = -1;
+                v2[i] = -1;
+                contador++; 
+            }
         }
         return contador;
     }

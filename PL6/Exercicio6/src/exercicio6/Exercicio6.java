@@ -44,6 +44,7 @@ public class Exercicio6
             System.out.println("Não existem visitantes.");
         else
         {
+            int contador=0, posicao=0;
             input.nextLine();
             System.out.print("Introduza o nome a alterar: ");
             String nome = input.nextLine();
@@ -52,11 +53,50 @@ public class Exercicio6
             {
                 if(nomes[i].contentEquals(nome))
                 {
-                    System.out.print("Introduza o novo nome: ");
-                    nomes[i] = input.nextLine();
-                    i = nElem;
+                    contador++;
+                    posicao=i;
+                    if(contador == 2)
+                    {
+                        System.out.println("Foram encontradas varias ocorrencias do nome " + nome);
+                        System.out.println("1-"+nomes[posicao]);
+                    }
+                    if(contador > 1)
+                        System.out.println(contador+"-"+nomes[posicao]);
                 }
             }
+            if(contador == 0)
+                System.out.println("Não foram encontradas pessoas com esse nome.");
+            else if(contador == 1)
+            {
+                System.out.print("Introduza o novo nome: ");
+                nomes[posicao] = input.nextLine();
+            }
+            else
+            {
+                int op = 0;
+                do
+                {
+                System.out.print("Insira a opção a actualizar: ");
+                op=input.nextInt();
+                } while(op > contador);
+                int contador2 = 0;
+
+                for(int i = 0; i < nElem; i++)
+                {
+                    if(nomes[i].contentEquals(nome))
+                    {
+                        contador2++;
+                        if(contador2 == contador)
+                        {
+                            input.nextLine();
+                            System.out.print("Introduza o novo nome: ");
+                            nomes[i] = input.nextLine();
+                            i=nElem;
+                        }
+                    }
+                }
+            }
+            
         }
     }
     
@@ -66,6 +106,7 @@ public class Exercicio6
             System.out.println("Não existem visitantes.");
         else
         {
+            int contador=0, posicao=0;
             boolean ordenar = false;
             input.nextLine();
             System.out.print("Introduza o nome a remover: ");
@@ -75,10 +116,53 @@ public class Exercicio6
             {
                 if(nomes[i].contentEquals(nome) || ordenar)
                 {
-                    ordenar = true;
-                    nomes[i] = nomes[i+1];
+                    contador++;
+                    posicao=i;
+                    if(contador == 2)
+                    {
+                        System.out.println("Foram encontradas varias ocorrencias do nome " + nome);
+                        System.out.println("1-"+nomes[posicao]);
+                    }
+                    if(contador > 1)
+                        System.out.println(contador+"-"+nomes[posicao]);
+                    
+                    
+                    
                 }
             }
+            
+            if(contador == 0)
+                System.out.println("Não foram encontradas pessoas com esse nome.");
+            else if(contador == 1)
+            {
+                ordenar = true;
+                for(int i = posicao; i < nElem; i++)
+                    nomes[i] = nomes[i+1];
+            }
+            else
+            {
+                int op = 0;
+                do
+                {
+                System.out.print("Insira a opção a remover: ");
+                op=input.nextInt();
+                } while(op > contador);
+                int contador2 = 0;
+
+                for(int i = 0; i < nElem; i++)
+                {
+                    if(nomes[i].contentEquals(nome))
+                    {
+                        contador2++;
+                        if(contador2 == contador || ordenar)
+                        {
+                            ordenar = true;
+                            nomes[i] = nomes[i+1];
+                        }
+                    }
+                }
+            }
+            
             if(ordenar)
                 nElem--;
         }
@@ -160,8 +244,8 @@ public class Exercicio6
                             + "5-Listar os nomes começados por uma dada letra\n"
                             + "6-Listar nomes repetidos\n"
                             + "7-Sair\n"
-                            + "Opção: ")
-                    ;
+                            + "Opção: ");
+            
             op = input.nextInt();
             
             switch (op)
