@@ -49,4 +49,8 @@ public class Rectangulo
     {
         return (2*altura+2*largura);
     }
+    public int perimetroDiagonal()
+    {
+        return (int) Math.sqrt(altura*altura+largura*largura);
+    }
 }
